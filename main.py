@@ -93,6 +93,28 @@ zina_lec = Lecturer('Zina', 'Soboleva')
 zina_lec.courses_attached = ['Py', 'Git']
 zina_lec.grades = {'Py': [7, 8, 9, 1000], 'Git': [7, 8, 9, 10]}
 
+zinaa_lec = Lecturer('Zina', 'Soboleva')
+zinaa_lec.courses_attached = ['Py', 'Git']
+zinaa_lec.grades = {'Git': [7, 8, 9, 10]}
+
+
+list_lecturer = [oleg_lec, zina_lec, zinaa_lec]
+
+def average_grades_lecturers(list_lecturer, courses):
+    sum_grades = 0
+    number_grades = 0
+    for lecturer in list_lecturer:
+        if courses in lecturer.grades:
+            grades = lecturer.grades[courses]
+            sum_ = sum(grades)
+            len_ = len(grades)
+            sum_grades += sum_
+            number_grades += len_
+        else:
+            continue
+    return sum_grades / number_grades
+print(average_grades_lecturers(list_lecturer, 'Py'))
+
 # # Проверка методов
 # print(oleg_lec.average_grade())
 # print(zina_lec.average_grade())
@@ -109,7 +131,30 @@ ivan_st.grades = {'Py': [7, 8, 9, 10], 'Git': [7, 8, 9, 10]}
 rita_st = Student('Rita', 'Petrova', 'women')
 rita_st.courses_in_progress = ['Py', 'Git']
 rita_st.finished_courses = ['List', 'Dict']
-rita_st.grades = {'Py': [7, 8, 9, 100], 'Git': [7, 8, 9, 10]}
+rita_st.grades = {'Py': [7, 8, 9, 100], 'Git': [7, 8, 9, 100]}
+
+ritaa_st = Student('Rita', 'Petrova', 'women')
+ritaa_st.courses_in_progress = ['Py', 'Git']
+ritaa_st.finished_courses = ['List', 'Dict']
+ritaa_st.grades = {'Py': [7, 8, 9, 100]}
+
+list_student = [ivan_st, rita_st, ritaa_st]
+
+def average_grades_students(list_student, courses):
+    sum_grades = 0
+    number_grades = 0
+    for student in list_student:
+        if courses in student.grades:
+            grades = student.grades[courses]
+            sum_ = sum(grades)
+            len_ = len(grades)
+            sum_grades += sum_
+            number_grades += len_
+        else:
+            continue
+    return sum_grades / number_grades
+print(average_grades_students(list_student, 'Git'))
+
 
 # # Проверка методов 
 # ivan_st.rate_lector(oleg_lec, 'Py', 7)
